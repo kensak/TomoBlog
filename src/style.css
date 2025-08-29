@@ -1,0 +1,66 @@
+/* 記事カードリスト用スタイル */
+.article-list {
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+	margin-bottom: 2rem;
+}
+.article-card {
+	display: block;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 1.5rem;
+	text-decoration: none;
+	color: #222;
+	width: 260px;
+	transition: box-shadow 0.2s;
+}
+.article-card:hover {
+	box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+	background: #f0f8ff;
+}
+.article-card h3 {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+.article-card p {
+	margin: 0;
+	font-size: 0.95em;
+	color: #555;
+}
+/* プロフィールページ用スタイル */
+.profile-list {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-width: 600px;
+	margin: 2rem auto;
+}
+.profile {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	background: #f7f7f7;
+	border-radius: 12px;
+	padding: 1rem;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.profile-icon {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: #fff;
+	border: 2px solid #eee;
+}
+.profile h3 {
+	margin: 0 0 0.5rem 0;
+}
+.profile p {
+	margin: 0;
+}
+body { background: #fff; color: #222; }
+a { color: #1976d2; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2 { color: #e57373; }
+img { border-radius: 50%; border: 1px solid #eee; }
