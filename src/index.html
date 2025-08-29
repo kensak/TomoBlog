@@ -6,40 +6,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main style="font-family:sans-serif; padding:2rem;">
-    <h1>TomoBlog</h1>
-    <p>トモやんとしらっちの日常会話ブログへようこそ！</p>
-    <nav style="margin-bottom:2rem;">
-      <a href="articles.html">記事一覧</a> |
-      <a href="profile.html">キャラクタープロフィール</a>
+  <header class="main-header">
+    <nav class="main-nav">
+  <a href="profile.html" class="nav-link">プロフィール</a>
     </nav>
-    <section>
-      <h2>最新記事</h2>
-      <div class="article-list">
-        <div class="article-card">
-          <h3>はじめての会話</h3>
-          <div style="display:flex; align-items:center; margin-bottom:1em;">
-            <img src="img/tomoyan.svg" alt="トモやん" width="40" height="40">
-            <span style="margin-left:1em;"><b>トモやん:</b> ねえ、しらっち、最近気になることある？</span>
-          </div>
-          <div style="display:flex; align-items:center; margin-bottom:1em;">
-            <img src="img/shiracchi.svg" alt="しらっち" width="40" height="40">
-            <span style="margin-left:1em;"><b>しらっち:</b> うーん、昨日のカフェで見た新しいメニューかな。</span>
-          </div>
-        </div>
-        <div class="article-card">
-          <h3>カフェでの発見</h3>
-          <div style="display:flex; align-items:center; margin-bottom:1em;">
-            <img src="img/tomoyan.svg" alt="トモやん" width="40" height="40">
-            <span style="margin-left:1em;"><b>トモやん:</b> あのカフェ、雰囲気よかったね！</span>
-          </div>
-          <div style="display:flex; align-items:center; margin-bottom:1em;">
-            <img src="img/shiracchi.svg" alt="しらっち" width="40" height="40">
-            <span style="margin-left:1em;"><b>しらっち:</b> うん、また行きたいな。</span>
-          </div>
-        </div>
+    <h1 class="site-title">TomoBlog</h1>
+    <p class="site-desc">トモやんとしらっちの日常会話ブログへようこそ！</p>
+  </header>
+  <main class="main-content">
+    <section class="article-section">
+      <div class="article-list" id="article-list">
+        <!-- 記事はJSで動的に読み込み -->
       </div>
     </section>
+    <script>
+      // 記事ファイルリスト
+      const articles = ["article-1.html", "article-2.html"];
+      const articleList = document.getElementById("article-list");
+
+      articles.forEach(file => {
+        fetch(file)
+          .then(res => res.text())
+          .then(html => {
+            // DOMパースして.article-cardのみ抽出
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const card = doc.querySelector(".article-card");
+            if(card) articleList.appendChild(card);
+          });
+      });
+    </script>
   </main>
 </body>
 </html>
